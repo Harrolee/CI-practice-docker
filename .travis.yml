@@ -1,0 +1,9 @@
+sudo: required
+services:
+ - docker
+
+before_install:
+ - docker build -t halzinnia/ci-practice -f Dockerfile.dev .   
+
+script:
+ - docker run -e CI=true halzinnia/ci-practice npm run test -- --coverage
