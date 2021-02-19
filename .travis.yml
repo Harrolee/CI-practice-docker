@@ -10,7 +10,7 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: "use-east-1"
+  region: "us-east-1"
   app: "ci-practice"
   env: "Cipractice-env"
   bucket_name: "elasticbeanstalk-us-east-1-310753928788"
