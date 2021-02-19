@@ -7,3 +7,16 @@ before_install:
 
 script:
  - docker run -e CI=true halzinnia/ci-practice npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "ci-practice"
+  env: "Cipractice-env"
+  bucket_name: "elasticbeanstalk-us-east-1-310753928788"
+  bucket_path: "ci-practice"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    SECURE: $AWS_SECRET_KEY
